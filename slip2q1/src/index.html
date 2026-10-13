@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Details</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="bankApp" ng-controller="bankController">
+
+    <h2>Bank Details</h2>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Bank Name</th>
+            <th>MICR Code</th>
+            <th>IFSC Code</th>
+            <th>Address</th>
+        </tr>
+
+        <tr ng-repeat="bank in banks">
+            <td>{{ bank.name }}</td>
+            <td>{{ bank.micr }}</td>
+            <td>{{ bank.ifsc }}</td>
+            <td>{{ bank.address }}</td>
+        </tr>
+    </table>
+
+    <script>
+        var app = angular.module("bankApp", []);
+
+        app.controller("bankController", function($scope) {
+
+            $scope.banks = [
+                {
+                    name: "State Bank of India",
+                    micr: "411002123",
+                    ifsc: "SBIN0001234",
+                    address: "Pune, Maharashtra"
+                },
+                {
+                    name: "Bank of Maharashtra",
+                    micr: "411014567",
+                    ifsc: "MAHB0001234",
+                    address: "Pune, Maharashtra"
+                },
+                {
+                    name: "HDFC Bank",
+                    micr: "411240789",
+                    ifsc: "HDFC0001234",
+                    address: "Pune, Maharashtra"
+                }
+            ];
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="employeeApp">
+
+<head>
+    <title>Employee Details</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="EmployeeController">
+
+    <h1>Employee Details</h1>
+
+    <table border="1">
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>PIN Code</th>
+            <th>Address</th>
+            <th>Department</th>
+        </tr>
+
+        <tr ng-repeat="employee in employees">
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.pincode }}</td>
+            <td>{{ employee.address }}</td>
+            <td>{{ employee.department }}</td>
+        </tr>
+    </table>
+
+    <script>
+        var app = angular.module("employeeApp", []);
+
+        app.controller("EmployeeController", function($scope) {
+
+            $scope.employees = [
+                {
+                    id: 101,
+                    name: "Suman",
+                    pincode: 411028,
+                    address: "Hadapsar, Pune",
+                    department: "IT"
+                },
+                {
+                    id: 102,
+                    name: "Rahul",
+                    pincode: 411001,
+                    address: "Shivajinagar, Pune",
+                    department: "HR"
+                },
+                {
+                    id: 103,
+                    name: "Priya",
+                    pincode: 411038,
+                    address: "Kothrud, Pune",
+                    department: "Finance"
+                }
+            ];
+
+        });
+    </script>
+
+</body>
+</html>
